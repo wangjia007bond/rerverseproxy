@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ssh-tunnel
+  labels:
+    app: reverseproxy
+    tier: ssh-tunnel
+spec:
+  type: NodePort
+  ports:
+  - port: 10022
+    nodePort: 30001
+  selector:
+    app: reverseproxy
+    tier: ssh-tunnel

@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ssh-tunnel
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: reverseproxy
+        tier: ssh-tunnel
+    spec:
+      containers:
+      - name: master
+        image: 10.19.132.184:30100/library/ssh-tunnel
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 10022

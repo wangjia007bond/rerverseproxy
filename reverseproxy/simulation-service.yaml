@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: simulation
+  labels:
+    app: reverseproxy
+    tier: simulation
+spec:
+  type: NodePort
+  ports:
+  - port: 10122
+    nodePort: 30133
+    port: 10022
+    nodePort: 30033
+  selector:
+    app: reverseproxy
+    tier: simulation

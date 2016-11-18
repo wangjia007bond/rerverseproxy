@@ -1,1 +1,1 @@
-rp
+A reverser proxy running in docker, orchestration by kurbenetes.
